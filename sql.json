@@ -1,0 +1,20 @@
+{
+    "haeKaikkiFestivaalit":[
+        "select id, nimi, aika, paikka, osallistujat from festivaali;"
+    ],
+
+    "haeKaikkiArtistit":[
+        "select id, nimi, maa, kuvaus from artisti;"
+    ],
+
+    "haeArtistitNimilla":[
+        "select id, nimi, maa, kuvaus from artisti where artisti.nimi like ?;"
+    ],
+    "haeKaupungitNimilla":[
+        "select id, nimi from kaupunki where kaupunki.nimi like ?;"
+    ],
+
+    "haeFestivaalitNimilla":[
+        "select id, nimi, aika, paikka, osallistujat from festivaali where festivaali.nimi like ?;"
+    ]
+}
