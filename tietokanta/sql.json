@@ -7,14 +7,14 @@
         "select id, nimi, maa, kuvaus from artisti;"
     ],
 
-    "haeArtistitNimilla":[
+    "haeArtistiNimilla":[
         "select id, nimi, maa, kuvaus from artisti where artisti.nimi like ?;"
     ],
-    "haeKaupungitNimilla":[
+    "haeKaupungiNimilla":[
         "select id, nimi from kaupunki where kaupunki.nimi like ?;"
     ],
 
-    "haeFestivaalitNimilla":[
+    "haeFestivaaliNimilla":[
         "select id, nimi, aika, paikka, osallistujat from festivaali where festivaali.nimi like ?;"
     ],
     "artistiKaupungit":[
