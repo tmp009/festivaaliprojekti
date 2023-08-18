@@ -30,51 +30,19 @@ async function haeKaikkiFestivaalit() {
     await con.end();
 }
 
-// async function haeArtisti(nimi) {
-//     let con;
+async function haeFestivaalienKaikkiArtistit() {
+    let con;
 
-//     try {
-//         con=await mariadb.createConnection(sqlConfig);
-//         nimi = `%${nimi}%`
-//         let data = await con.query(sqlKyselyt.haeArtistiNimilla.join(' '), nimi);
-//         return data
-//     } catch (error) {
-//         console.log(error)
-//     }
+    try {
+        con=await mariadb.createConnection(sqlConfig);
+        let data = await con.query(sqlKyselyt.festivaalienKaikkiArtistit.join(' '));
+        return data
+    } catch (error) {
+        console.log(error)
+    }
 
-//     await con.end();
-// }
-
-// async function haeKaupunki(nimi) {
-//     let con;
-
-//     try {
-//         con=await mariadb.createConnection(sqlConfig);
-//         nimi = `%${nimi}%`
-//         let data = await con.query(sqlKyselyt.haeKaupunkiNimilla.join(' '), nimi);
-//         return data
-//     } catch (error) {
-//         console.log(error)
-//     }
-
-//     await con.end();
-// }
-
-// async function haeFestivaali(nimi) {
-//     let con;
-
-//     try {
-//         con=await mariadb.createConnection(sqlConfig);
-//         nimi = `%${nimi}%`
-//         let data = await con.query(sqlKyselyt.haeFestivaaliNimilla.join(' '), nimi);
-//         return data
-//     } catch (error) {
-//         console.log(error)
-//     }
-
-//     await con.end();
-// }
-
+    await con.end();
+}
 
 async function artistiKaupungit(nimi) {
     let con;
@@ -96,20 +64,6 @@ async function kaupunkiFestivaali() {
     try {
         con=await mariadb.createConnection(sqlConfig);
         let data = await con.query(sqlKyselyt.kaupunkiFestivaali.join(' '));
-        return data
-    } catch (error) {
-        console.log(error)
-    }
-
-    await con.end();
-}
-
-async function haeFestivaalienKaikkiArtistit() {
-    let con;
-
-    try {
-        con=await mariadb.createConnection(sqlConfig);
-        let data = await con.query(sqlKyselyt.festivaalienKaikkiArtistit.join(' '));
         return data
     } catch (error) {
         console.log(error)
@@ -160,6 +114,53 @@ async function festivaaliAika() {
     await con.end();
 }
 
+// async function haeArtisti(nimi) {
+//     let con;
+
+//     try {
+//         con=await mariadb.createConnection(sqlConfig);
+//         nimi = `%${nimi}%`
+//         let data = await con.query(sqlKyselyt.haeArtistiNimilla.join(' '), nimi);
+//         return data
+//     } catch (error) {
+//         console.log(error)
+//     }
+
+//     await con.end();
+// }
+
+// async function haeKaupunki(nimi) {
+//     let con;
+
+//     try {
+//         con=await mariadb.createConnection(sqlConfig);
+//         nimi = `%${nimi}%`
+//         let data = await con.query(sqlKyselyt.haeKaupunkiNimilla.join(' '), nimi);
+//         return data
+//     } catch (error) {
+//         console.log(error)
+//     }
+
+//     await con.end();
+// }
+
+// async function haeFestivaali(nimi) {
+//     let con;
+
+//     try {
+//         con=await mariadb.createConnection(sqlConfig);
+//         nimi = `%${nimi}%`
+//         let data = await con.query(sqlKyselyt.haeFestivaaliNimilla.join(' '), nimi);
+//         return data
+//     } catch (error) {
+//         console.log(error)
+//     }
+
+//     await con.end();
+// }
+
+haeKaikkiFestivaalit('Nightwish')
+.then(console.log)
 
 module.exports={ haeKaikkiArtistit, haeKaikkiFestivaalit,
                 artistiKaupungit, kaupunkiFestivaali,
