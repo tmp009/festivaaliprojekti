@@ -1,6 +1,7 @@
 {
     "haeKaikkiFestivaalit":[
-        "select id, nimi, aika, paikka, osallistujat from festivaali;"
+        "select festivaali.id, festivaali.nimi, festivaali.aika, kaupunki.nimi as paikka from festivaali,",
+        "kaupunki where kaupunki.id=festivaali.paikka;"
     ],
 
     "haeKaikkiArtistit":[
@@ -10,16 +11,20 @@
     "haeArtistiNimilla":[
         "select id, nimi, maa, kuvaus from artisti where artisti.nimi like ?;"
     ],
-    "haeKaupungiNimilla":[
-        "select id, nimi from kaupunki where kaupunki.nimi like ?;"
+    "haeKaupunkiNimilla":[
+        "select festivaali.id, festivaali.nimi, festivaali.aika, kaupunki.nimi as paikka",
+        "from festivaali, kaupunki",
+        "where kaupunki.nimi like ? and kaupunki.id=festivaali.paikka;"
     ],
 
     "haeFestivaaliNimilla":[
-        "select id, nimi, aika, paikka, osallistujat from festivaali where festivaali.nimi like ?;"
+        "select festivaali.id, festivaali.nimi, festivaali.aika, kaupunki.nimi as paikka,",
+        "osallistujat from festivaali, kaupunki where kaupunki.id=festivaali.paikka and festivaali.nimi like ?;"
     ],
     "artistiKaupungit":[
         "select artisti.id, artisti.nimi as artisti, kaupunki.nimi as kaupunki from artisti, osallistuja, kaupunki, festivaali",
         "where osallistuja.artisti=artisti.id",
+        "and artisti.nimi = ?",
         "and festivaali.id=osallistuja.festivaali" ,
         "and festivaali.paikka=kaupunki.id;"
     ],
@@ -27,9 +32,13 @@
         "select kaupunki.nimi as kaupunki, festivaali.nimi as festivaali from kaupunki, festivaali",
         "where kaupunki.id = festivaali.paikka;"
     ],
-    "festivaalienArtistit": [
+    "festivaalienKaikkiArtistit": [
         "select festivaali.nimi as festivaali, artisti.nimi as artisti from festivaali, artisti, osallistuja",
         "where osallistuja.artisti=artisti.id and festivaali.id=osallistuja.festivaali;"
+    ],
+    "festivaalienArtistit":[
+        "select festivaali.nimi as festivaali, artisti.nimi as artisti from festivaali, artisti, osallistuja",
+        "where osallistuja.artisti=artisti.id and festivaali.id=osallistuja.festivaali and artisti.nimi like ?;"
     ],
     "festivaalienArtistiMaara":[
         "select festivaali.nimi, COUNT(festivaali.id) as maara from festivaali, artisti, osallistuja",
@@ -38,7 +47,9 @@
         "order by maara desc;"
     ],
     "festivaaliAika":[
-        "select festivaali.nimi as festivaali, festivaali.aika from festivaali",
+        "select festivaali.id, festivaali.nimi, festivaali.aika,", 
+        "kaupunki.nimi as paikka from festivaali, kaupunki",
+        "where kaupunki.id=festivaali.paikka",
         "order by festivaali.aika asc;"
     ]
 }
