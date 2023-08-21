@@ -30,11 +30,11 @@
     ],
     "kaupunkiFestivaali":[
         "select kaupunki.nimi as kaupunki, festivaali.nimi as festivaali from kaupunki, festivaali",
-        "where kaupunki.id = festivaali.paikka;"
+        "where kaupunki.id = festivaali.paikka and kaupunki.nimi like ?;"
     ],
     "festivaalienKaikkiArtistit": [
         "select festivaali.nimi as festivaali, artisti.nimi as artisti from festivaali, artisti, osallistuja",
-        "where osallistuja.artisti=artisti.id and festivaali.id=osallistuja.festivaali;"
+        "where osallistuja.artisti=artisti.id and festivaali.id=osallistuja.festivaali and festivaali.nimi=?;"
     ],
     "festivaalienArtistit":[
         "select festivaali.nimi as festivaali, artisti.nimi as artisti from festivaali, artisti, osallistuja",
