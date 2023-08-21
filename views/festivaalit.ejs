@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<body>
+    <main>
+        <h1>Festivaalit</h1>
+
+        <table class="center">
+            <tr>
+              <th>Nimi</th>
+              <th>Artisit määrä</th>
+            </tr>
+            <% festivaalit.forEach(item => { %>             
+                <tr>
+                  <td><a href="/festivaalit/<%= item.nimi %>"><%= item.nimi %></a></td>
+                  <td><%= item.maara %></td>
+                </tr>
+            <% }) %>
+          </table>
+    </main>
+</body>
+<%- include('partials/footer') %>

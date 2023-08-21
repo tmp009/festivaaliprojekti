@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+<style>
+  .row {
+    display: flex;
+    margin-left:-5px;
+    margin-right:-5px;
+  }
+
+  .column {
+    flex: 50%;
+    padding: 5px;
+  }
+
+  table{
+    text-align: center;
+  }
+</style>
+<body>
+    <main>
+        <h1><%= title %></h1>
+
+        <div class="row">
+          <table class="column">
+              <tr>
+                <th>Kaupungit</th>
+              </tr>
+              <% kaupungit.forEach(item => { %>             
+                  <tr>
+                    <td><a href="/kaupunki/<%= item.kaupunki %>"><%= item.kaupunki %></a> </td>
+                  </tr>
+              <% }) %>
+            </table>
+            <table class="column">
+              <tr>
+                <th>Festivaalit</th>
+              </tr>
+              <% festivaalit.forEach(item => { %>             
+                  <tr>
+                    <td><a href="/festivaalit/<%= item.festivaali %>"><%= item.festivaali %></a> </td>
+                  </tr>
+              <% }) %>
+            </table>
+        </div>
+    </main>
+</body>
+<%- include('partials/footer') %>

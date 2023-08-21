@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+header {
+    background-color:rgb(104, 216, 253);
+    color: white;
+}
+
+header li {
+    display: inline-block;
+}
+
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav li a:hover {
+    background-color: slategray;
+    cursor:pointer;
+}
+
+   
+ul li a {
+    padding: 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    margin-top: 25px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+td, th, table {
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(179, 179, 179);
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}

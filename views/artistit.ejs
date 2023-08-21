@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<body>
+    <main>
+        <h1>Artistit</h1>
+
+        <table class="center">
+            <tr>
+              <th>Nimi</th>
+              <th>Maa</th>
+              <th>Kuvaus</th>
+            </tr>
+            <% artistit.forEach(item => { %>             
+                <tr>
+                  <td><a href="/artistit/<%= item.nimi %>"><%= item.nimi %></a></td>
+                  <td><%= item.maa %></td>
+                  <td><%= item.kuvaus %></td>
+                </tr>
+            <% }) %>
+          </table>
+    </main>
+</body>
+<%- include('partials/footer') %>

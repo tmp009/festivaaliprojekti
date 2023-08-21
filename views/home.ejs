@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+<body>
+    <main>
+        <h1>Kotisivu</h1>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <h2>Festarit</h2>
+            <table class="center">
+                <tr>
+                  <th>Nimi</th>
+                  <th>Paikka</th>
+                </tr>
+                <% festarit.forEach(item => { %>                 
+                    <tr>
+                      <td><a href="/festivaalit/<%= item.nimi %>"><%= item.nimi %></a></td>
+                      <td><a href="/kaupunki/<%= item.paikka %>"><%= item.paikka %></a> </td>
+                    </tr>
+                <% }) %>
+              </table>
+        </div>
+    </main>
+</body>
+<%- include('partials/footer') %>

@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+<body>
+    <main>
+        <h1>Aikataulu</h1>
+
+        <table class="center">
+            <tr>
+              <th>Nimi</th>
+              <th>Paikka</th>
+              <th>Päivämäärä</th>
+            </tr>
+            <% aikataulu.forEach(item => { %>             
+                <tr>
+                  <td><a href="/festivaalit/<%= item.nimi %>"><%= item.nimi %></a></td>
+                  <td><a href="/kaupunki/<%= item.paikka %>"><%= item.paikka %></a> </td>
+                  <td><%=item.aika.getDate()%>.<%=item.aika.getMonth()%>.<%=item.aika.getFullYear() %></td>
+                </tr>
+            <% }) %>
+          </table>
+    
+    </main>
+</body>
+<%- include('partials/footer') %>
